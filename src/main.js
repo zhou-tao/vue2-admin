@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import './styles/index.scss'
 import '@unocss/reset/tailwind-compat.css'
 import 'uno.css'
 

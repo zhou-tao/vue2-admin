@@ -1,16 +1,19 @@
 <template>
   <div
     w="420px"
-    bg="#ffffff90 dark:#22222290"
     p="8"
+    bg="#ffffff90 dark:#22222290"
     rounded-xl
     shadow-xl
   >
-    <h1 text="3xl primary center">
+    <h1
+      text="3xl primary center"
+      font="semibold"
+    >
       {{ $store.getters.appTitle }}
     </h1>
     <div
-      m="t-12 mt-11"
+      m="t-12"
       flex="~ col"
     >
       <el-form
@@ -41,9 +44,7 @@
         <el-form-item>
           <div
             w="360px"
-            flex
-            justify="between"
-            items="center"
+            flex="center justify-between"
           >
             <el-checkbox v-model="loginForm.rememberMe">
               记住密码
@@ -96,6 +97,7 @@ export default {
       this.loading = true
       setTimeout(() => {
         this.loading = false
+        this.$router.push('/admin')
       }, 1500)
     }
   },

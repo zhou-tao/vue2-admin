@@ -4,6 +4,7 @@ export default [
   {
     path: '/admin',
     component: AdminLayout,
+    redirect: '/admin/dashboard',
     children: [
       {
         path: 'dashboard',
@@ -11,6 +12,14 @@ export default [
         component: () => import('@/views/admin/dashboard/index.vue'),
         meta: {
           title: '仪表盘'
+        }
+      },
+      {
+        path: 'user',
+        name: 'User',
+        component: () => import('@/views/admin/user/index.vue'),
+        meta: {
+          title: '用户管理'
         }
       },
       {

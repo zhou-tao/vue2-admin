@@ -12,7 +12,7 @@ const NotFoundRoutes = [
   {
     path: '/404',
     name: 'NotFound',
-    component: () => import('@/views/not-found/index.vue'),
+    component: () => import('@/views/error/not-found.vue'),
     meta: {
       title: '404 Not Found'
     }

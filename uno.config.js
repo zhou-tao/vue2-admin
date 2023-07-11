@@ -16,6 +16,11 @@ export default defineConfig({
       warn: true,
       collections: {
         app: FileSystemIconLoader('./src/assets/icon')
+      },
+      extraProperties: {
+        display: 'inline-block',
+        'vertical-align': 'middle',
+        margin: '-2px 4px 0'
       }
     })
   ],
@@ -30,12 +35,29 @@ export default defineConfig({
       page_light: '#ffffff', // 基础布局背景
       page_dark: '#18181B',
       primary: '#409EFF'
+    },
+    height: {
+      header: '64px',
+      footer: '50px',
+      tab: '40px',
+      content: 'calc(100vh - 169px)'
     }
   },
   shortcuts: {
-    'flex-center': 'flex justify-center items-center'
+    'bg-root': 'bg-root_light dark:bg-root_dark',
+    'bg-page': 'bg-page_light dark:bg-page_dark',
+    'flex-center': 'flex justify-center items-center',
+    'transition-base': 'transition-all duration-150 ease-in-out'
   },
   rules: [
+    [
+      'text-brand-gradient',
+      {
+        'color': 'transparent',
+        'background-image': 'linear-gradient(to right, #00ff8f, #00a1ff)',
+        'background-clip': 'text'
+      }
+    ],
     [
       'bg-gradient-light',
       {
@@ -48,6 +70,12 @@ export default defineConfig({
       {
         'background-image':
           'linear-gradient( 135deg, #2A5470 20%, #4C4177 100%)'
+      }
+    ],
+    [
+      'shadow-card-dark',
+      {
+        'box-shadow': '0 0 12px 0 rgb(0 0 0 / 9%)'
       }
     ]
   ]

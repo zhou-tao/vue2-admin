@@ -4,9 +4,11 @@
     w="screen"
     h="screen"
     flex="center"
+    justify="around"
     overflow="hidden"
     bg="gradient-light dark:gradient-dark"
   >
+    <img src="@/assets/img/login_banner.svg" w="lg">
     <login-form />
   </div>
 </template>

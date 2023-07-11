@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.18",
+    "@iconify-json/ep": "^1.1.11",
     "@iconify/utils": "^2.1.7",
     "@unocss/reset": "^0.53.5",
     "@vitejs/plugin-legacy": "^4.1.0",

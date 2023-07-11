@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@iconify-json/carbon': ^1.1.18
+  '@iconify-json/ep': ^1.1.11
   '@iconify/utils': ^2.1.7
   '@unocss/reset': ^0.53.5
   '@vitejs/plugin-legacy': ^4.1.0
@@ -34,6 +35,7 @@ dependencies:
 
 devDependencies:
   '@iconify-json/carbon': 1.1.18
+  '@iconify-json/ep': 1.1.11
   '@iconify/utils': 2.1.7
   '@unocss/reset': 0.53.5
   '@vitejs/plugin-legacy': 4.1.0_terser@5.18.2+vite@4.4.2
@@ -1536,6 +1538,12 @@ packages:
 
   /@iconify-json/carbon/1.1.18:
     resolution: {integrity: sha512-RbKET6KS9xUMeYVq1FUH3UUA7AYNcnApkHt2AccCwTWTQQs/O58ji4Of6z6PhRajGlbfvrJzT/Uqh19OKECRvA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/ep/1.1.11:
+    resolution: {integrity: sha512-g08CJ1qod1FyqJk33sTH+PjcdBjukzBMscc+V0LjKi6jYg8EQSrJMolay/cgjWoqlHt6HP26fckQ+Efl8GlW1g==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

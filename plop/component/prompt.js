@@ -7,9 +7,22 @@ export default {
     name: 'name',
     message: '请输入组件名称',
     validate: notEmpty('name')
+  },{
+    type: 'confirm',
+    name: 'multiple',
+    message: '是否新建组件目录',
+    default: false
   }],
-  actions ({ name }) {
-    const actions = [{
+  actions ({ name, multiple }) {
+    const defaultActions = [{
+      type: 'add',
+      path: `src/components/${name}.vue`,
+      templateFile: 'plop/component/component.hbs',
+      data: {
+        name
+      }
+    }]
+    const multipleActions = [{
       type: 'add',
       path: `src/components/${name}/src/index.vue`,
       templateFile: 'plop/component/component.hbs',
@@ -24,6 +37,6 @@ export default {
         name
       }
     }]
-    return actions
+    return multiple ? multipleActions : defaultActions
   }
 }

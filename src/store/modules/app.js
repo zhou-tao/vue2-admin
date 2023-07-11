@@ -1,18 +1,27 @@
-import { ThemeEnum } from '@/enum'
+import { AppTheme, MenuLayout } from '@/enum'
 
 const state = {
-  title: 'vue2-starter',
+  title: 'Vue2 Starter',
+  theme: AppTheme.LIGHT,
   showProgress: true,
-  theme: ThemeEnum.LIGHT
+  showBreadcrumb: true,
+  showPageTab: true,
+  showPageTransition: true,
+  showFooter: true,
+  menuCollapsed: false,
+  menuLayout: MenuLayout.VERTICAL,
+  visitedViews: []
 }
 
-const mutations = {}
-
-const actions = {}
+const actions = {
+  addVisitedView() {},
+  deleteVisitedView() {},
+  setVisitedView() {},
+  toggleCollapse() {}
+}
 
 export default {
   namespaced: true,
   state,
-  mutations,
   actions
 }
