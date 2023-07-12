@@ -20,7 +20,7 @@ export default defineConfig({
       extraProperties: {
         display: 'inline-block',
         'vertical-align': 'middle',
-        margin: '-2px 4px 0'
+        margin: '0 4px'
       }
     })
   ],

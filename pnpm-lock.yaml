@@ -1,7 +1,6 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@iconify-json/carbon': ^1.1.18
   '@iconify-json/ep': ^1.1.11
   '@iconify/utils': ^2.1.7
   '@unocss/reset': ^0.53.5
@@ -34,7 +33,6 @@ dependencies:
   vuex: 3.6.2_vue@2.7.14
 
 devDependencies:
-  '@iconify-json/carbon': 1.1.18
   '@iconify-json/ep': 1.1.11
   '@iconify/utils': 2.1.7
   '@unocss/reset': 0.53.5
@@ -1534,12 +1532,6 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
-    dev: true
-
-  /@iconify-json/carbon/1.1.18:
-    resolution: {integrity: sha512-RbKET6KS9xUMeYVq1FUH3UUA7AYNcnApkHt2AccCwTWTQQs/O58ji4Of6z6PhRajGlbfvrJzT/Uqh19OKECRvA==}
-    dependencies:
-      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify-json/ep/1.1.11:

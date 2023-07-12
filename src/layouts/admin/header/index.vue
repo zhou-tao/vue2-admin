@@ -40,13 +40,13 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="$router.push({ path: '/personal/index', query: { tab: 'password' } })">
-                <div i-ep-lock />设置
+                <div i-ep-lock mt--2px />设置
               </el-dropdown-item>
               <el-dropdown-item
                 divided
                 @click="$router.replace('/login?redirect=logout')"
               >
-                <div i-ep-switch-button />注销
+                <div i-ep-switch-button mt--2px />注销
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -88,7 +88,7 @@ export default {
 
 <style scoped lang="scss">
 .icon-view {
-  @apply w-8 h-8 rounded-full flex-center bg-light cursor-pointer text-15px transition-base hover:bg-light_hover;
+  @apply w-8 h-8 rounded-full flex-center bg-light cursor-pointer text-18px transition-base hover:bg-light_hover;
 }
 
 :deep(.el-dropdown [role=button]) {
