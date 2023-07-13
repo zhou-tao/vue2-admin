@@ -19,7 +19,7 @@
 <script>
 import MenuItem from './MenuItem.vue'
 import AdminRoutes from '@/router/routes/modules/admin'
-import { MenuLayout } from '@/enum'
+import { MenuLayout } from '@/enums'
 import { mapGetters } from 'vuex'
 import { MenuItem as ElMenuItem, Submenu as ElSubMenu } from 'element-ui'
 
@@ -51,8 +51,8 @@ export default {
   methods: {
     resolveFullPath(route) {
       if (!route.path) return ''
-      const resolvedRoute = this.$router.resolve(route)
-      return resolvedRoute.fullPath
+      const { resolved } = this.$router.resolve(route)
+      return resolved?.fullPath || route.path
     },
     routeToMenu(routes) {
       return routes.filter(route => !route?.meta?.hide).map(r => {

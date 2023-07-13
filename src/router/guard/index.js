@@ -1,15 +1,14 @@
-import { createPermissionGuard } from './permission'
+// import { createPermissionGuard } from './permission'
 import { AxiosCanceler } from '@/utils/http/axiosCancel'
-import { useSettingStore } from '@/store/modules/setting'
+import store from '@/store'
 import NProgress from 'nprogress'
-import config from '@/config'
 
 /**
  * @description 设置路由守卫
  * @param router
  */
 export function setupRouterGuard(router) {
-  createPermissionGuard(router)
+  // createPermissionGuard(router)
   createTitleGuard(router)
   createHttpGuard(router)
   createNProgressGuard(router)
@@ -20,8 +19,9 @@ export function setupRouterGuard(router) {
  * @param router
  */
 const createTitleGuard = (router) => {
-  router.beforeEach(to => {
-    document.title = to.meta.title || config.APP.title
+  router.beforeEach((to, from, next) => {
+    document.title = to.meta.title || store.getters.appTitle
+    next()
   })
 }
 
@@ -30,8 +30,9 @@ const createTitleGuard = (router) => {
  * @param router
  */
 const createHttpGuard = (router) => {
-  router.beforeEach(() => {
+  router.beforeEach((to, from, next) => {
     new AxiosCanceler().removeAllPending()
+    next()
   })
 }
 
@@ -40,8 +41,9 @@ const createHttpGuard = (router) => {
  * @param router
  */
 const createNProgressGuard = (router) => {
-  router.beforeEach(() => {
-    useSettingStore().hasProgress && NProgress.start()
+  router.beforeEach((to, from, next) => {
+    store.getters.showProgress && NProgress.start()
+    next()
   })
   router.afterEach(() => {
     NProgress.done()

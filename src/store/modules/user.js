@@ -1,3 +1,5 @@
+import router from '@/router'
+
 const state = {
   info: {
     username: 'admin',
@@ -6,7 +8,14 @@ const state = {
   menus: []
 }
 
-const actions = {}
+const actions = {
+  async reLogin() {
+    return { accessToken: '123' }
+  },
+  logout(_, redirectUrl) {
+    router.replace(`/login?redirect=${redirectUrl}`)
+  }
+}
 
 export default {
   namespaced: true,

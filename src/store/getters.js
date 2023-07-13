@@ -1,4 +1,4 @@
-import { AppTheme, MenuLayout } from '@/enum'
+import { AppTheme, MenuLayout } from '@/enums'
 
 export default {
   // app

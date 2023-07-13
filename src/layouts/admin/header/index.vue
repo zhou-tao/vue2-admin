@@ -39,14 +39,14 @@
           </div>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item @click="$router.push({ path: '/personal/index', query: { tab: 'password' } })">
-                <div i-ep-lock mt--2px />设置
+              <el-dropdown-item @click="$router.push('/personal/info')">
+                <div i-ep-user mt--2px />个人中心
               </el-dropdown-item>
               <el-dropdown-item
                 divided
                 @click="$router.replace('/login?redirect=logout')"
               >
-                <div i-ep-switch-button mt--2px />注销
+                <div i-ep-switch-button mt--2px />注销登录
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -61,7 +61,7 @@ import Breadcrumb from './components/Breadcrumb.vue'
 // import ThemeSwitch from '@/components/ThemeSwitch'
 import LogoView from '../sider/components/LogoView.vue'
 import AppMenu from '../sider/components/menu/index.vue'
-import { MenuLayout } from '@/enum'
+import { MenuLayout } from '@/enums'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
