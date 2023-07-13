@@ -1,8 +1,8 @@
 <template>
   <component :is="component" :index="index">
-    <Icon v-if="icon && !isSubMenu" class="icon" :icon="icon" />
+    <div v-if="icon && !isSubMenu" :class="`${icon} icon`" />
     <template #title>
-      <!-- <Icon v-if="icon && isSubMenu" class="icon" :icon="icon" /> -->
+      <div v-if="icon && isSubMenu" :class="`${icon} icon`" />
       <span>{{ title }}</span>
     </template>
     <template v-if="children?.length">
@@ -12,7 +12,6 @@
 </template>
 
 <script>
-// import { Icon } from '@iconify/vue'
 export default {
   name: 'MenuItem',
   props: {

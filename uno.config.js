@@ -9,25 +9,6 @@ import {
 } from 'unocss'
 
 export default defineConfig({
-  presets: [
-    presetUno(),
-    presetAttributify(),
-    presetIcons({
-      warn: true,
-      collections: {
-        app: FileSystemIconLoader('./src/assets/icon')
-      },
-      extraProperties: {
-        display: 'inline-block',
-        'vertical-align': 'middle',
-        margin: '0 4px'
-      }
-    })
-  ],
-  transformers: [
-    transformerDirectives(),
-    transformerVariantGroup()
-  ],
   theme: {
     colors: {
       root_light: '#f5f6fa', // 最底层背景
@@ -78,5 +59,29 @@ export default defineConfig({
         'box-shadow': '0 0 12px 0 rgb(0 0 0 / 9%)'
       }
     ]
-  ]
+  ],
+  presets: [
+    presetUno(),
+    presetAttributify(),
+    presetIcons({
+      warn: true,
+      collections: {
+        app: FileSystemIconLoader('./src/assets/icon')
+      },
+      extraProperties: {
+        display: 'inline-block',
+        'vertical-align': 'middle',
+        margin: '0 4px'
+      }
+    })
+  ],
+  transformers: [
+    transformerDirectives(),
+    transformerVariantGroup()
+  ],
+  safelist: [
+    'i-ep-menu',
+    'i-ep-avatar',
+    'i-ep-info-filled'
+  ],
 })

@@ -97,7 +97,7 @@ export default {
       this.loading = true
       setTimeout(() => {
         this.loading = false
-        this.$router.push('/admin')
+        this.$router.push('/home')
       }, 1500)
     }
   },

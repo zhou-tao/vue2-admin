@@ -1,5 +1,6 @@
-import LoginRoutes from './login'
-import AdminRoutes from './admin'
+import LoginRoutes from './modules/login'
+import AdminRoutes from './modules/admin'
+import ErrorRoutes from './modules/error'
 
 const BaseRoutes = [
   {
@@ -8,19 +9,4 @@ const BaseRoutes = [
   }
 ]
 
-const NotFoundRoutes = [
-  {
-    path: '/404',
-    name: 'NotFound',
-    component: () => import('@/views/error/not-found.vue'),
-    meta: {
-      title: '404 Not Found'
-    }
-  },
-  {
-    path: '*',
-    redirect: '/404'
-  }
-]
-
-export default BaseRoutes.concat(LoginRoutes, AdminRoutes, NotFoundRoutes)
+export default BaseRoutes.concat(LoginRoutes, AdminRoutes, ErrorRoutes)

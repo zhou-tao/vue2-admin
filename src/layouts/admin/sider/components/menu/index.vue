@@ -18,7 +18,7 @@
 
 <script>
 import MenuItem from './MenuItem.vue'
-import AdminRoutes from '@/router/routes/admin'
+import AdminRoutes from '@/router/routes/modules/admin'
 import { MenuLayout } from '@/enum'
 import { mapGetters } from 'vuex'
 import { MenuItem as ElMenuItem, Submenu as ElSubMenu } from 'element-ui'
