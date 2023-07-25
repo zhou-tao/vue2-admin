@@ -1,5 +1,7 @@
 <template>
-  <h3>{{ $route.meta.title }}</h3>
+  <div page-card>
+    <h3>{{ $route.meta.title }}</h3>
+  </div>
 </template>
 
 <script>

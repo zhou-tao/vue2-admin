@@ -7,8 +7,8 @@
   >
     <el-tabs
       type="card"
-      closable
       style="width: calc(100% - 60px)"
+      :closable="visitedViews.length > 1"
       :value="$route.path"
       @tab-click="handleClickTab"
       @tab-remove="handleRemoveTab"
@@ -23,7 +23,7 @@
     <el-dropdown
       trigger="click"
     >
-      <div w-50px center border-l="solid root_light dark:root_dark" cursor-pointer>
+      <div w-50px h-full flex-center border-l="1px solid root_light dark:root_dark" cursor-pointer>
         <div i-ep-more-filled />
       </div>
       <template #dropdown>

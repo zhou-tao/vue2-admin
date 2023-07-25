@@ -4,7 +4,7 @@
     px-6
     flex="center"
     justify="between"
-    border-b="solid root_light dark:root_dark"
+    border-b="1px solid root_light"
   >
     <div flex items="center" gap="6">
       <span v-if="isSideMenu" cursor="pointer" leading="0" @click="toggleCollapse">

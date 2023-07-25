@@ -14,10 +14,18 @@ const state = {
 }
 
 const actions = {
-  addVisitedView() {},
-  deleteVisitedView() {},
+  addVisitedView({ state }, route) {
+    if (state.visitedViews.some(v => v.path === route.path)) return
+    state.visitedViews.push(route)
+  },
+  deleteVisitedView({ state }, route) {
+    const targetIndex = state.visitedViews.findIndex(v => v.path === route.path)
+    if (targetIndex > -1) state.visitedViews.splice(targetIndex, 1) 
+  },
   setVisitedView() {},
-  toggleCollapse() {}
+  toggleCollapse({ state }) {
+    state.menuCollapsed = !state.menuCollapsed
+  }
 }
 
 export default {

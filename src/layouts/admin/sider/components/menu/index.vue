@@ -5,7 +5,7 @@
       border-r="0"
       :mode="mode"
       :collapse="menuCollapsed"
-      :default-active="$route?.meta?.activeMenu || activeRoute.path"
+      :default-active="$route?.meta?.activeMenu || activeRoute.redirect || activeRoute.path"
     >
       <MenuItem
         v-for="menu in menuData"
@@ -85,8 +85,8 @@ export default {
 
   // 顶层无法穿透样式
   .menu--vertical :deep(.el-menu) {
-    .el-sub-menu__title, .el-menu-item {
-      @apply h-12 text-regular select-none;
+    .el-submenu__title, .el-menu-item {
+      @apply h-12 text-regular select-none leading-12;
       .icon {
         @apply mr-10px text-base;
       }

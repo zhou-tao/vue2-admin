@@ -2,8 +2,7 @@
   <el-aside
     v-if="isSideMenu"
     :width="menuCollapsed ? '54px' : '260px'"
-    border-r="solid root_light"
-    dark:border-r="root_dark"
+    border-r="1 solid root_light"
     overflow-x="hidden"
     pb="12"
     box="border"

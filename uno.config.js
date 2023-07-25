@@ -15,12 +15,16 @@ export default defineConfig({
       root_dark: '#272727',
       page_light: '#ffffff', // 基础布局背景
       page_dark: '#18181B',
-      primary: '#409EFF'
+      primary: '#377dff',
+      regular: '#606266',
+      placeholder: '#a8abb2'
     },
     height: {
       header: '64px',
       footer: '50px',
-      tab: '40px',
+      tab: '40px'
+    },
+    minHeight: {
       content: 'calc(100vh - 169px)'
     }
   },
@@ -28,7 +32,9 @@ export default defineConfig({
     'bg-root': 'bg-root_light dark:bg-root_dark',
     'bg-page': 'bg-page_light dark:bg-page_dark',
     'flex-center': 'flex justify-center items-center',
-    'transition-base': 'transition-all duration-150 ease-in-out'
+    'transition-base': 'transition-all duration-150 ease-in-out',
+    'page-base': 'min-h-content overflow-x-hidden box-border',
+    'page-card': 'page-base bg-page rounded px-6 py-5',
   },
   rules: [
     [

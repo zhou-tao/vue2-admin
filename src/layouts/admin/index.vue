@@ -12,7 +12,7 @@
     <el-container h="full" bg="root">
       <LayoutSider />
       <el-container direction="vertical">
-        <el-header h="auto" p-0 bg="page">
+        <el-header height="auto" p-0 bg="page">
           <LayoutHeader />
           <LayoutTabs />
         </el-header>
