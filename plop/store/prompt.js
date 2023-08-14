@@ -8,7 +8,7 @@ export default {
     message: '请输入module名称',
     validate: notEmpty('name')
   }],
-  actions ({ name }) {
+  actions({ name }) {
     const actions = [{
       type: 'add',
       path: `src/store/modules/${name}.js`,

@@ -45,6 +45,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+
 export default {
   name: 'LayoutTabs',
   computed: {
@@ -66,7 +67,7 @@ export default {
   },
   methods: {
     ...mapActions('app', ['addVisitedView', 'setVisitedView', 'deleteVisitedView']),
-    handleClickTab (tab) {
+    handleClickTab(tab) {
       this.$router.push(tab.paneName)
     },
     handleRemoveTab(path) {

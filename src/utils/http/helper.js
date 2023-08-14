@@ -5,7 +5,7 @@ import { alertErrMsg } from '@/utils/message'
 export const generateBaseToken = token => `bearer ${token}`
 
 // 请求数据转换
-export const transformRequest = config => {
+export const transformRequest = (config) => {
   const { data, params, method } = config
   // GET方法时 params来自 自身 或者 data
   if (method === HttpMethodEnum.GET) {

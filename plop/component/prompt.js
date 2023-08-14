@@ -7,13 +7,13 @@ export default {
     name: 'name',
     message: '请输入组件名称',
     validate: notEmpty('name')
-  },{
+  }, {
     type: 'confirm',
     name: 'multiple',
     message: '是否新建组件目录',
     default: false
   }],
-  actions ({ name, multiple }) {
+  actions({ name, multiple }) {
     const defaultActions = [{
       type: 'add',
       path: `src/components/${name}.vue`,

@@ -17,9 +17,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import AppMenu from './components/menu/index.vue'
 import LogoView from './components/LogoView.vue'
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'LayoutSider',

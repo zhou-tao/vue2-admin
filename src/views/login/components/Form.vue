@@ -7,7 +7,7 @@
     shadow-xl
   >
     <h1
-      text="3xl primary center"
+      text="3xl brand-gradient center"
       font="semibold"
     >
       {{ $store.getters.appTitle }}
@@ -100,7 +100,7 @@ export default {
         this.$router.push('/home')
       }, 1500)
     }
-  },
+  }
 }
 </script>
 

@@ -1,7 +1,7 @@
 // import { createPermissionGuard } from './permission'
+import NProgress from 'nprogress'
 import { AxiosCanceler } from '@/utils/http/axiosCancel'
 import store from '@/store'
-import NProgress from 'nprogress'
 
 /**
  * @description 设置路由守卫

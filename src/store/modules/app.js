@@ -1,7 +1,7 @@
 import { AppTheme, MenuLayout } from '@/enums'
 
 const state = {
-  title: 'Vue2 Starter',
+  title: 'Vue2 Admin',
   theme: AppTheme.LIGHT,
   showProgress: true,
   showBreadcrumb: true,
@@ -20,7 +20,7 @@ const actions = {
   },
   deleteVisitedView({ state }, route) {
     const targetIndex = state.visitedViews.findIndex(v => v.path === route.path)
-    if (targetIndex > -1) state.visitedViews.splice(targetIndex, 1) 
+    if (targetIndex > -1) state.visitedViews.splice(targetIndex, 1)
   },
   setVisitedView() {},
   toggleCollapse({ state }) {

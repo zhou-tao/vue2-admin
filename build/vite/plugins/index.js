@@ -18,8 +18,8 @@ export const createVitePlugins = (viteEnv, isBuild) => {
 
   if (isBuild) {
     // 生产环境兼容不支持ESM浏览器以及内置babel
-    VITE_USE_LEGACY &&
-      vitePlugins.push(
+    VITE_USE_LEGACY
+      && vitePlugins.push(
         legacy({
           targets: ['defaults', 'not IE 11']
         })

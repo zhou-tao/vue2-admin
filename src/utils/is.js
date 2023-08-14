@@ -54,10 +54,10 @@ export function isNumber(val) {
 
 export function isPromise(val) {
   return (
-    is(val, 'Promise') &&
-    isObject(val) &&
-    isFunction(val.then) &&
-    isFunction(val.catch)
+    is(val, 'Promise')
+    && isObject(val)
+    && isFunction(val.then)
+    && isFunction(val.catch)
   )
 }
 
@@ -68,13 +68,13 @@ export function isString(val) {
 export function isJsonString(val) {
   if (!isString(val)) return false
   try {
-    return isObject(JSON.parse(val)) ? true : false
+    return !!isObject(JSON.parse(val))
   } catch (err) {
     return false
   }
 }
 
-export function isFunction(val){
+export function isFunction(val) {
   return typeof val === 'function'
 }
 
@@ -94,10 +94,10 @@ export function isWindow(val) {
   return typeof window !== 'undefined' && is(val, 'Window')
 }
 
-export function isElement(val){
+export function isElement(val) {
   return isObject(val) && !!val.tagName
 }
 
-export function isMap(val){
+export function isMap(val) {
   return is(val, 'Map')
 }

@@ -1,5 +1,7 @@
-import { ContentTypeEnum, HttpMethodEnum, TokenTypeEnum } from '@/enums'
 import { useCookie } from '@h/web/useCookie'
+import axios, { isAxiosError, isCancel } from 'axios'
+import qs from 'qs'
+import { ContentTypeEnum, HttpMethodEnum, TokenTypeEnum } from '@/enums'
 import { AxiosCanceler } from '@/utils/http/axiosCancel'
 import checkStatus from '@/utils/http/checkStatus'
 import {
@@ -8,15 +10,13 @@ import {
   transformResponse
 } from '@/utils/http/helper'
 import store from '@/store'
-import axios from 'axios'
-import qs from 'qs'
 
 /**
  *  @description: axios 实例化封装
  */
 export class CustomAxios {
   // 初始化 axios实例默认配置时，无需设置 url
-  constructor (options) {
+  constructor(options) {
     this.axiosInstance = axios.create(options)
     // 设置拦截器
     this.setupInterceptors()
@@ -50,11 +50,11 @@ export class CustomAxios {
     const axiosCanceler = new AxiosCanceler()
     // 请求拦截
     this.axiosInstance.interceptors.request.use(
-      async config => {
+      async (config) => {
         const { headers, withToken, ignoreCancelToken } = config
         // 当请求函数内未设置 ignoreCancelToken 时才采用默认初始化配置
-        const ignoreCancel =
-          ignoreCancelToken !== undefined
+        const ignoreCancel
+          = ignoreCancelToken !== undefined
             ? ignoreCancelToken
             : this.options?.ignoreCancelToken
         !ignoreCancel && axiosCanceler.addPending(config)
@@ -75,19 +75,19 @@ export class CustomAxios {
 
     // 响应拦截
     this.axiosInstance.interceptors.response.use(
-      res => {
+      (res) => {
         axiosCanceler.removePending(res.config)
         return res
       },
-      async err => {
+      async (err) => {
         const response = err.response
         // 满足 isAxiosError 或 isCancel 的请求均已被 axios取消
-        const canBeRemove = !axios.isAxiosError(err) && !axios.isCancel(err)
+        const canBeRemove = !isAxiosError(err) && !isCancel(err)
         canBeRemove && axiosCanceler.removePending(response.config)
         checkStatus(
           response?.status,
           response?.data?.message || err?.message || '',
-          axios.isCancel(err)
+          isCancel(err)
         )
         return Promise.reject(err)
       }
@@ -103,9 +103,9 @@ export class CustomAxios {
     const { headers } = config || this.options
     const contentType = headers?.['Content-Type'] || headers?.['content-type']
     if (
-      contentType !== ContentTypeEnum.FORM_URLENCODED ||
-      !Reflect.has(config, 'data') ||
-      config.method === HttpMethodEnum.GET
+      contentType !== ContentTypeEnum.FORM_URLENCODED
+      || !Reflect.has(config, 'data')
+      || config.method === HttpMethodEnum.GET
     ) {
       return config
     }
@@ -140,7 +140,7 @@ export class CustomAxios {
     let conf = Object.assign({}, this.options, config)
     conf = this.supportFormData(conf)
     conf = transformRequest(conf)
-    if(conf.useMock) {
+    if (conf.useMock) {
       conf.url = `/mock${conf.url}`
     }
     return new Promise((resolve, reject) => {

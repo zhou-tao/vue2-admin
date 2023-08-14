@@ -1,24 +1,15 @@
 {
-  "name": "vue2-vite",
-  "private": true,
-  "version": "0.0.0",
+  "name": "vue2-admin",
   "type": "module",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "plop": "plop",
     "build": "vite build",
-    "lint": "eslint --ext .js,.vue src/",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "postinstall": "simple-git-hooks"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged",
-    "commit-msg": "node build/verifyCommit.js"
-  },
-  "lint-staged": {
-    "*.{vue,js}": [
-      "eslint --fix"
-    ]
   },
   "dependencies": {
     "axios": "^1.4.0",
@@ -31,9 +22,11 @@
   "devDependencies": {
     "@iconify-json/ep": "^1.1.11",
     "@iconify/utils": "^2.1.7",
+    "@toryz/eslint-config-basic": "^0.1.4",
     "@unocss/reset": "^0.53.5",
     "@vitejs/plugin-legacy": "^4.1.0",
     "@vitejs/plugin-vue2": "^2.2.0",
+    "autoprefixer": "^10.4.15",
     "chalk": "^5.3.0",
     "eslint": "^8.44.0",
     "eslint-plugin-vue": "^9.15.1",
@@ -47,5 +40,12 @@
     "vite": "^4.4.0",
     "vue-eslint-parser": "^9.3.1",
     "vue-template-compiler": "^2.7.14"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "commit-msg": "node build/verifyCommit.js"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }

@@ -1,19 +1,22 @@
 module.exports = {
   root: true,
-  env: {
-    node: true
-  },
   extends: [
     'plugin:vue/recommended',
-    'eslint:recommended'
+    '@toryz/basic'
   ],
-  parser: 'vue-eslint-parser',
-  parserOptions: {
-    sourceType: 'module'
-  },
+  overrides: [
+    {
+      files: ['*.vue'],
+      parser: 'vue-eslint-parser',
+      rules: {
+        'no-unused-vars': 'off',
+        'no-undef': 'off',
+        'indent': 'off'
+      }
+    }
+  ],
   rules: {
-    'semi': ['error', 'never'],
-    'quotes': ['error', 'single'],
+    'vue/script-indent': ['error', 2, { baseIndent: 0, switchCase: 1 }],
     'vue/multi-word-component-names': ['off'],
     'vue/max-attributes-per-line': ['off']
   }

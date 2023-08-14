@@ -1,5 +1,6 @@
 import { resolve } from 'node:path'
 import { defineConfig, loadEnv } from 'vite'
+import autoprefixer from 'autoprefixer'
 import { createVitePlugins } from './build/vite/plugins'
 import { createViteProxy } from './build/vite/proxy'
 
@@ -9,33 +10,31 @@ export default defineConfig(({ mode }) => {
   const viteEnv = loadEnv(mode, envDir)
   const {
     VITE_PORT,
-    VITE_PUBLIC_PATH,
+    VITE_PUBLIC_PATH
   } = viteEnv
 
-  return defineConfig({
+  return {
     envDir,
     base: VITE_PUBLIC_PATH,
     plugins: createVitePlugins(viteEnv, isBuild),
     resolve: {
       alias: {
-        '@': resolve(__dirname, 'src')
+        '@': resolve(__dirname, 'src'),
+        '@c': resolve(__dirname, 'src/components')
       }
     },
-    esbuild: {
-      minify: isBuild // TODO
+    css: {
+      postcss: {
+        plugins: [
+          autoprefixer()
+        ]
+      }
     },
-    // css: {
-    //   postcss: {
-    //     plugins: [
-    //       require('autoprefixer')
-    //     ]
-    //   },
-    // },
     server: {
       port: VITE_PORT,
       host: true,
       open: true,
       proxy: createViteProxy()
     }
-  })
+  }
 })

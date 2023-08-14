@@ -57,12 +57,13 @@
 </template>
 
 <script>
-import Breadcrumb from './components/Breadcrumb.vue'
-// import ThemeSwitch from '@/components/ThemeSwitch'
+import { mapGetters, mapActions } from 'vuex'
 import LogoView from '../sider/components/LogoView.vue'
 import AppMenu from '../sider/components/menu/index.vue'
+import Breadcrumb from './components/Breadcrumb.vue'
+
+// import ThemeSwitch from '@/components/ThemeSwitch'
 import { MenuLayout } from '@/enums'
-import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'LayoutHeader',
@@ -72,7 +73,7 @@ export default {
     LogoView,
     AppMenu
   },
-  data () {
+  data() {
     return {
       MenuLayout
     }

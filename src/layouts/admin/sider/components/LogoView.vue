@@ -7,7 +7,7 @@
     cursor="pointer"
     @click="router.push('/home')"
   >
-    <img src="@/assets/img/logo.svg" alt="logo" width="28">
+    <img src="/vue.svg" alt="logo" width="28">
     <h1
       v-show="!menuCollapsed"
       text="xl main hover:regular"
@@ -23,6 +23,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
 export default {
   name: 'LogoView',
   computed: {

@@ -17,11 +17,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { MenuItem as ElMenuItem, Submenu as ElSubMenu } from 'element-ui'
 import MenuItem from './MenuItem.vue'
 import AdminRoutes from '@/router/routes/modules/admin'
 import { MenuLayout } from '@/enums'
-import { mapGetters } from 'vuex'
-import { MenuItem as ElMenuItem, Submenu as ElSubMenu } from 'element-ui'
 
 export default {
   name: 'AppMenu',
@@ -55,7 +55,7 @@ export default {
       return resolved?.fullPath || route.path
     },
     routeToMenu(routes) {
-      return routes.filter(route => !route?.meta?.hide).map(r => {
+      return routes.filter(route => !route?.meta?.hide).map((r) => {
         const childMenu = r.children && r.children.filter(child => !child.meta?.hideMenu)
         return {
           title: r?.meta?.title || 'title',
@@ -66,7 +66,7 @@ export default {
         }
       })
     }
-  },
+  }
 }
 </script>
 
