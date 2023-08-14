@@ -1,3 +1,4 @@
+import { join } from 'node:path'
 import { notEmpty } from '../utils.js'
 
 export default {
@@ -10,30 +11,19 @@ export default {
   },
   {
     type: 'input',
-    name: 'api',
-    message: '请输入列表请求方法名(eg. getUserList)',
-    default: 'YourApi'
-  },
-  {
-    type: 'input',
-    name: 'model',
-    message: '请输入列表数据类型名(eg. UserInfoModel)',
-    default: 'YourModel'
-  }, {
-    type: 'confirm',
-    name: 'isSystemPage',
-    message: '是否为系统设置功能页面',
-    default: false
+    name: 'dir',
+    message: '请输入所在目录(eg. admin)',
+    validate: notEmpty('dir'),
+    default: 'admin'
   }],
-  actions({ name, api, model, isSystemPage }) {
+  actions({ name, dir }) {
+    const path = join(process.cwd(), 'src/views', dir, name, 'index.vue')
     const actions = [{
       type: 'add',
-      path: `src/views/admin/${isSystemPage ? '_sys/' : ''}${name}/index.vue`,
+      path,
       templateFile: 'plop/page/page.hbs',
       data: {
-        name,
-        api,
-        model
+        name
       }
     }]
     return actions
