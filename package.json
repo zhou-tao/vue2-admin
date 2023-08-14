@@ -47,5 +47,10 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
-  }
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "not dead"
+  ]
 }
