@@ -38,6 +38,7 @@
     "unocss": "^0.53.4",
     "unplugin-vue-components": "^0.25.1",
     "vite": "^4.4.0",
+    "vite-plugin-env-parser": "^0.3.0",
     "vue-eslint-parser": "^9.3.1",
     "vue-template-compiler": "^2.7.14"
   },

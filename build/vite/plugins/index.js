@@ -1,6 +1,7 @@
 import vue from '@vitejs/plugin-vue2'
 import unocss from 'unocss/vite'
 import legacy from '@vitejs/plugin-legacy'
+import envParser from 'vite-plugin-env-parser'
 import { configAutoImport } from './auto-imports'
 
 export const createVitePlugins = (viteEnv, isBuild) => {
@@ -8,6 +9,8 @@ export const createVitePlugins = (viteEnv, isBuild) => {
 
   const vitePlugins = [
     vue(),
+
+    envParser({}),
 
     // unocss 配置
     unocss(),
